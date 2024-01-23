@@ -1,0 +1,269 @@
+html, body {
+  background-color: black;
+  margin: 5vh;
+  background: linear-gradient(to bottom, #8aa89e, #36403f);
+  background-attachment: fixed;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.card-container {
+
+  padding:0 16vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*
+
+top menu
+
+*/
+
+#buttons-container {
+  position: fixed;
+  top: 5vh;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: black;
+  padding: 3px 8px 3px 8px;
+  border-radius: 30px;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.button {
+  align: center;
+  padding: 8px;
+  color: #8aa89e;
+  text-decoration: none; /* removes underline */
+  position: relative;
+  z-index: 1;
+  opacity: 100%;
+}
+
+.button::before {
+  align: center;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: width 0.3s cubic-bezier(0.5, -0.75, 0.25, 1.75), height 0.5s cubic-bezier(0.5, -0.75, 0.25, 1.75),  opacity 0.35s ease; /* animation transition for size opacity */
+  /* for linear pattern replace 'cubic-bezier(#)' with 'ease'. */
+
+  opacity: 0%;  /* starting opacity */
+}
+
+.button:hover::before {   /* button during transition */
+  width: 100%;
+  height: 70%;
+  opacity: 100%;
+  color: #8aa89e; /* text color */
+
+}
+
+
+.button:hover { /* the button while it is hovering */
+  color:#555555; /* text color */
+
+}
+
+.button:not(:hover) {
+  transition: opacity 0.3s ease-out;
+  opacity: 100;
+}
+
+
+/*
+
+Text
+
+*/
+
+h1{
+  color: black;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+
+.link {
+  color: #9cf5ff;
+}
+
+
+.link:visited {
+  color: #9cf5ff;
+}
+
+
+
+.basic-text{
+  text-align: center;
+  left: 250px;
+  flex: 1;
+  padding: 20px;
+}
+
+
+.content {
+  flex: 1;
+}
+
+/*
+
+cards
+
+*/
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* grid layout */
+  gap: 3vh;
+}
+
+.card {
+  width: 35vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: scale 500ms;
+}
+
+.card .card-front-image {               /* front card image*/
+  position: relative;
+  z-index: 2;
+
+}
+
+.card:hover .card-front-image {         /*on hover increase scale */
+  transform: scale(1.03);
+}
+
+.card .card-front-image {
+
+  transform: scale(1);
+  transition: transform 0.1s ease;        /*animate hover */
+}
+.card .card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1vh;
+}
+
+.card-faders {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1300ms;
+  pointer-events: none;
+}
+
+.card:hover .card-faders {      /* When hovering, do what to the fader cards...*/
+  scale: 1.03;
+  opacity: 1;
+}
+
+.card:active {                  /* When clicking, do what to the entire card...*/
+  /*scale: 1.1;*/
+}
+
+.card-fader {
+  position: absolute;
+}
+
+.card-fader:nth-child(odd) {
+  animation: fade-left 2s linear infinite;
+}
+
+.card-fader:nth-child(even) {
+  animation: fade-right 2s linear infinite;
+}
+
+.card-fader:is(:nth-child(3), :nth-child(4)) {
+  animation-delay: 550ms;
+}
+
+.card-fader:is(:nth-child(5), :nth-child(6)) {
+  animation-delay: 1300ms;
+}
+
+.card-fader:is(:nth-child(7), :nth-child(8)) {
+  animation-delay: 2050ms;
+}
+
+@keyframes fade-left {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+    filter: grayscale(50%);
+
+  }
+
+  to {
+    scale: 0.6;
+    translate: -25%;
+    opacity: 0;
+    filter: grayscale(100%);
+
+  }
+}
+
+@keyframes fade-right {
+  from {
+    scale: 1;
+    translate: 0%;
+    opacity: 1;
+    filter: grayscale(50%);
+
+  }
+
+  to {
+    scale: 0.6;
+    translate: 25%;
+    opacity: 0;
+    filter: grayscale(100%);
+
+  }
+}
+
+
+/*
+
+Footer
+
+*/
+footer {
+  bottom: 0;
+  color: white;
+  text-align: center;
+}
+.info-footer {
+
+  bottom: 0;
+  color: white;
+  text-align: center;
+
+  margin-top: 70vh; /* Push the footer to the bottom */
+
+}
