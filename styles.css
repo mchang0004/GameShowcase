@@ -60,7 +60,7 @@ top menu
   border-radius: 30px;
   transform: translate(-50%, -50%);
   z-index: -1;
-  transition: width 0.3s cubic-bezier(0.5, -0.75, 0.25, 1.75), height 0.5s cubic-bezier(0.5, -0.75, 0.25, 1.75),  opacity 0.35s ease; /* animation transition for size opacity */
+  transition: width 0.3s cubic-bezier(0.5, -0.75, 0.25, 1.75), height 0.5s cubic-bezier(0.5, -0.75, 0.25, 1.75),  opacity 0.05s ease; /* animation transition for size opacity */
   /* for linear pattern replace 'cubic-bezier(#)' with 'ease'. */
 
   opacity: 0%;  /* starting opacity */
@@ -81,7 +81,7 @@ top menu
 }
 
 .button:not(:hover) {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.1s ease-out;
   opacity: 100;
 }
 
