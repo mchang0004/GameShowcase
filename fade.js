@@ -46,6 +46,11 @@ cardsData.forEach(({imageUrl, link }) => {
     faderImageElement.src = imageUrl;
     fadersElement.appendChild(faderImageElement);
   }
+
+  const effect = document.createElement('div');
+  effect.className = 'effect';
+  cardElement.appendChild(effect);
+
   cardElement.appendChild(frontImageElement);                     //stack everything
   cardElement.appendChild(fadersElement);
   cardsContainer.appendChild(cardElement);
